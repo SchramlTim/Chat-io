@@ -31,15 +31,21 @@ io.on('connection', function(socket){
       console.log("whisper to " +reciever);
       var socketID = getSocketID(reciever);
       var fullMessage = "<span class='timestamp'>"+timestamp+"</span> <span class='user-nickname private'>" + "<a onclick='whisperTo(this)'>"+sender + "</a>" + " (privat):</span>" + parsedMessage.message.substr(parsedMessage.message.indexOf('" ')+2,parsedMessage.message.length);
-      io.to(socketID).emit('chat message', fullMessage);
-      io.to(socket.id).emit('chat message', fullMessage);
-    }
-    else if(parsedMessage.message.startsWith("/list")){
-      var tmpList = [];
-      for(var i = 0; i < userList.length; i++){
-        tmpList.push(userList[i].nickname);
+      if(socketID != socket.id) {
+        io.to(socketID).emit('chat message', fullMessage);
+        io.to(socket.id).emit('chat message', fullMessage);
       }
-      io.emit('user list', tmpList);
+    }
+    else if(parsedMessage.message.startsWith("/list")) {
+        var tmpList = [];
+        for (var i = 0; i < userList.length; i++) {
+            tmpList.push(userList[i].nickname);
+        }
+        io.emit('user list', tmpList);
+    }
+    else if(parsedMessage.message.startsWith("/milk")){
+        var fullMessage = "<span class='timestamp'>"+timestamp+"</span> <span class='user-nickname'>Server:</span> Muuuuuhhh you can't milk those";
+        io.emit('chat message', fullMessage);
     }
     else{
       var fullMessage = "<span class='timestamp'>"+timestamp+"</span> <span class='user-nickname'>" + sender + ":</span>" + parsedMessage.message;
