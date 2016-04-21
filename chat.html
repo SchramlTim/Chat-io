@@ -8,90 +8,229 @@
         form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 80%; }
         form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
         form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-        #logout{ width: 100%; height: 4.5%; background: #FFBFA1; border: none; padding: 10px; position: absolute; bottom:0; right:0;}
-        #messages { list-style-type: none; margin: 0; padding: 0 0 38px 0; }
+        
+        #messages { list-style-type: none; margin: 0; padding: 0 0 38px 0; position: absolute; width:80%;}
         #messages li { padding: 5px 10px;background-color: #EEE }
         #messages li:nth-child(odd) { background-color: #FFF }
-        #lightbox{background-color: rgba(0,0,0,0.6); position: absolute; top: 0px; left: 0px; width:100%; height:100%;z-index:999;}
-        #nickname-input{text-align: center;margin: 20% 0px 0px;}
+        #lightbox{background-color: rgba(0,0,0,0.6); position: absolute; top: 0px; left: 0px; width:100%; height:100%;z-index:999;position: fixed;}
         .user-nickname{font-weight: bolder; margin: 0 20px 0 0;}
-        #user-list{width: 20%;
+        #chat-options{width: 20%;
             height: 100%;
             position: fixed;
-            top: 0px;
+            top: 0pxs;
             right: 0px;
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f3f3f3+50,ededed+100 */
             background: #ffffff; /* Old browsers */
             background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 50%, #ededed 100%); /* FF3.6-15 */
             background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 50%,#ededed 100%); /* Chrome10-25,Safari5.1-6 */
             background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
-
         }
-        #user-list li{
+        #chat-options li{
             list-style: none;
         }
-        #user-list ul{
-            margin: 2rem 7rem;
+        #chat-options ul{
+            position: absolute;
+            top: 16%;
         }
         #chat{width:80%;}
         li{font-size: x-large;}
         #new-message{
             position: absolute;
-            bottom: 4.5%;
-            height: 10%;
-            text-align: center;
-            vertical-align: middle;
-            background: lightgreen;
-            width: 100%;
-            padding: 3rem;
+            bottom: 9%;
+            height: 10%;            
+            background: lightgreen;            
             display: none;
         }
-        #get-list{
+        #get-user-list{
             width:100%;
             height: 4.5%;
-            background-color:#AE8BFF;
-            text-align:center;
+            background-color:#AE8BFF; 
+            top:0;           
+        }
+        #get-chatroom-list{
+            width:100%;
+            height: 4.5%;
+            background-color:blue; 
+            top:4.5%;           
+        }
+        #logout{ 
+            width: 100%; 
+            height: 4.5%; 
+            background: #FFBFA1; 
+            bottom:0; 
+            right:0;
+        }
+        #leave-chat{
+            width:100%;
+            height: 4.5%;
+            background-color:cornflowerblue; 
+            bottom: 4.5%; 
+        }
+        #chatroom-list-wrapper{
+            display: none;                 
+        }
+        #nickname-wrapper{
+            display:table-cell; 
+        }
+        #chatroom-admin-wrapper{
+            display:none;
+        }
+        #chatroom-list{
+            height:500px;
+            list-style: none;
+            text-align: center;
+            color:white;
+            background-color: blue;
+            width: 30%;
+            margin: 0 auto;
+        }
+        #create-new-room{
+            width:30%;
+            height: 4.5%;
+            background-color:red;
             padding: 0.8rem;
+            text-align: center;   
+            margin: 0 auto;         
+        }        
+        .wrapper{
+            display: table;
+            vertical-align: middle;  
+            width:100%; 
+            height:100%;       
+        }
+        .lightbox-option{
+           display: table-cell;
+           vertical-align: middle;
+           text-align: center;
+        }
+        .close{
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            
+        }
+        .button{
+            height: 4.5%;
+            width: 100%;
+            display: table; 
+            vertical-align: middle; 
+            position: absolute;            
+        }
+        .button span{
+           display: table-cell;
+           vertical-align: middle;
+           text-align: center;
+        }
+        #chatroom-name{
+            display: table; 
+            vertical-align: middle;
+            width:100%;
+            height: 50px;
+            background-color:white;
+            position: absolute;
+            top: 9%;
+        }
+        #chatroom-name span{
+           display: table-cell;
+           vertical-align: middle;
+           text-align: center;
+           font-size: 40px;
+        }    
+        #set-password{
+            width: 30%;
+            height: 4.5%;
+            background-color: red;
+            padding: 0.8rem;
+            text-align: center;
+            margin: 0px auto;
+        }
+        #requested-user{
+            height: 250px;
+            list-style: none;
+            text-align: center;
+            color: white;
+            background-color: blue;
+            width: 30%;
+            margin: 0 auto;
+            overflow: scroll
+        }   
+        #whole-list-for-whitelist{
+            height: 250px;
+            list-style: none;
+            text-align: center;
+            color: white;
+            background-color: green;
+            width: 30%;
+            margin: 0 auto;
+            overflow: scroll
+        } 
+        #admin-panel{
+            width:100%;
+            height: 4.5%;
+            background-color:lightseagreen; 
+            bottom: 9%;
+            display:none;
         }
     </style>
 </head>
 <body>
 <div id="lightbox">
-    <div id="nickname-input">
-        <div id="nickname-error"></div>
-        <input id="nickname"/><input type="button" value="Name eingeben" onclick="addNickname()"/>
+    <div class="wrapper">
+        <div class="lightbox-option" id="nickname-wrapper">
+            <div id="nickname-error"></div>
+            <input id="nickname"/><input type="button" value="Name eingeben" onclick="addNickname()"/>
+        </div>
+        <div class="lightbox-option" id="chatroom-list-wrapper">            
+            <div id="create-new-room" onclick="createNewChatroom()">Neuen Chatroom erstellen</div>
+            <ul id="chatroom-list">                     
+            </ul>        
+            <div onclick="closeLightbox()" class="close">X</div>
+        </div>
+        <div class="lightbox-option" id="chatroom-admin-wrapper">            
+            <div id="set-password" onclick="setChatroomPassword()">Setze ein Passwort</div>
+            <ul id="requested-user">                     
+            </ul>   
+            <ul id="whole-list-for-whitelist">                         
+            </ul>      
+            <div onclick="closeLightbox()" class="close">X</div>
+        </div>
     </div>
 </div>
-<div id="chat">
+<div id="chat">    
     <ul id="messages"></ul>
     <form action="">
         <input id="m" autocomplete="off" /><button>Senden</button>
     </form>
 
 </div>
-<div id="user-list">
-    <div id="get-list" onclick="getList()">Benutzerliste</div>
-    <ul id="list">
+<div id="chat-options">
+    <div id="chatroom-name"><span id="name"></span></div>
+    <div class="button" id="get-user-list" onclick="getUserList()"><span>Benutzerliste</span></div>
+    <div class="button" id="get-chatroom-list" onclick="getChatroomList()"><span>Chatroomliste</span></div>
+    <ul id="user-list">
     </ul>
-    <div id="new-message">Neue Nachricht</div>
-    <a href="/"><button id="logout">Logout</button></a>
+    <div class="button" id="admin-panel" onclick="openAdmin()"><span>Adminbereich</span></div>
+    <div class="button" id="new-message"><span>Neue Nachricht</span></div>
+    <div class="button" id="leave-chat" onclick="leaveChatroom()"><span>Chat verlassen</span></div>
+    <a href="/"><button class="button" id="logout">Logout</button></a>
 </div>
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+<script src="http://travistidwell.com/jsencrypt/bin/jsencrypt.js"></script>
 <script>
-    /*
-    *
-    *  Socket.io Chat von Christina Papadopoulos und Tim Schraml
-    *
-    * */
     var socket = io();
     localStorage.setItem("scroll","true");
+    var crypt = new JSEncrypt(1024);
 
-    /*
-
-    * Check for browser window height and enable the auto scroll
-    * */
+    var generateKeys = function () {
+        crypt.getKey();
+        localStorage.setItem("myPrivateKey",crypt.getPrivateKey());
+        localStorage.setItem("myPublicKey",crypt.getPublicKey());
+    };
+    
     $(window).scroll(function() {
         if($(window).scrollTop() + $(window).height() == $(document).height()) {
             localStorage.setItem("scroll","true");
@@ -100,24 +239,44 @@
             localStorage.setItem("scroll","false");
         }
     });
-
-    /*
-    * sends the chat message to the server as json and reset the chat input
-    * */
+    
     $('form').submit(function(){
-        var message = {"message": $('#m').val()};
-        socket.emit('chat message',JSON.stringify(message));
+        var message = $('#m').val();
+        if(message != ""){
+            var cmd = parseTextToCommand(message);        
+            crypt.setPublicKey(localStorage.getItem("myPublicKey"));        
+            if(cmd == "whisper"){
+                var receiver = parseName(message);
+                var sendMessage = message.substr(message.indexOf('" ')+2,message.length);
+                var encrypted = crypt.encrypt(sendMessage);
+                socket.emit('whisper',receiver,encrypted);
+            }else if(cmd == "list"){
+                socket.emit('get user list');
+            }else if(cmd == "sec"){ 
+                socket.emit('get sec');
+            }else if(cmd == "message"){   
+                var encrypted = crypt.encrypt(message);         
+                socket.emit('chat message',encrypted);            
+            }            
+        }
         $('#m').val('');
         return false;
     });
-
-    /*
-     * socket listen to the server, on event "chat message".
-     * if on name is set(localStorage), the user dont get a message from the server.
-     * if auto scroll is enabled, the chat scrolls to the end of the document.
-     * else a message is displayed that says: "New message is arrived".
-     * */
-    socket.on('chat message', function(msg){
+    
+    socket.on('chat message', function(prefix,msg){
+        crypt.setPrivateKey(getKey(prefix));
+        var decryptMsg = crypt.decrypt(msg);
+        if(localStorage.getItem("nickname") != "") {
+            $('#messages').append($('<li>').html(prefix + ": " + decryptMsg));
+        }
+            if(localStorage.getItem("scroll") == "true"){
+                window.scrollTo(0, document.body.scrollHeight);
+                document.getElementById("new-message").style.display = "none";
+            }else{
+                document.getElementById("new-message").style.display = "table";
+        }
+    });
+    socket.on('server message', function(msg){
         if(localStorage.getItem("nickname") != "") {
             $('#messages').append($('<li>').html(msg));
         }
@@ -125,51 +284,158 @@
             window.scrollTo(0, document.body.scrollHeight);
             document.getElementById("new-message").style.display = "none";
         }else{
-            document.getElementById("new-message").style.display = "block";
+            document.getElementById("new-message").style.display = "table";
         }
     });
-
-    /*
-    * socket listen to the server on event "user list".
-    * gets from server a list of all user names(online)
-    * click on a name shows the whisper command in den chat input
-    * */
-    socket.on('user list', function(user){
-        document.getElementById("list").innerHTML = "";
+    socket.on('get user list', function(listOfUser){
+        var user = JSON.parse(listOfUser);
+        document.getElementById("user-list").innerHTML = "";
         for(var i = 0; i < user.length; i++){
-            $('#list').append($('<li>').html("<a onclick='whisperTo(this)'>"+user[i]+"</a>"));
+            $('#user-list').append($('<li>').html("<a onclick='whisperTo(this)'>"+user[i]+"</a>"));
         }
+    });    
+    socket.on('get chatroom list', function(listOfChatroom){
+        var rooms = JSON.parse(listOfChatroom);
+        document.getElementById("chatroom-list-wrapper").style.display = "table-cell";
+        document.getElementById("chatroom-list").innerHTML = "";
+        document.getElementById("nickname-wrapper").style.display = "none"; 
+        document.getElementById("chatroom-admin-wrapper").style.display = "none";       
+        for(var i = 0; i < rooms.length; i++){
+            $('#chatroom-list').append($('<li>').html("<a onclick='joinChatroom(this)'>"+rooms[i]+"</a>"));
+        }
+        document.getElementById("lightbox").style.display = "block";
     });
-    /*
-    * socket listen to the server on event "nickname error".
-    * shows the user a message, if the nickname is already taken.
-    * */
+    socket.on('public key list', function(listOfPublicKeys){
+        localStorage.setItem("publicKeyList",listOfPublicKeys);
+    });
     socket.on('nickname error',function(msg){
         document.getElementById("nickname-error").innerHTML = msg;
         document.getElementById("lightbox").style.display = "block";
-    });
-
-    /*
-    * function add Nickname to the localStorage and close the lightbox.
-    * */
-    function addNickname(){
-        var nickname = document.getElementById("nickname").value;
-        localStorage.setItem("nickname",nickname);
+    });    
+    socket.on('chat is created',function(){        
         document.getElementById("lightbox").style.display = "none";
-        socket.emit('login',localStorage.getItem("nickname"));
+        document.getElementById("messages").innerHTML = "";
+        document.getElementById("user-list").innerHTML = "";        
+    });
+    socket.on('user joined new chatroom',function(){        
+        document.getElementById("lightbox").style.display = "none";
+        document.getElementById("messages").innerHTML = "";
+        document.getElementById("user-list").innerHTML = ""; 
+    });
+    socket.on('chatroom got closed',function(warning){        
+        alert(warning);
+        document.getElementById("messages").innerHTML = "";
+    }); 
+    socket.on('chatroom name',function(name){        
+        document.getElementById("name").innerHTML = name;
+    }); 
+    socket.on('get requested user',function(list){        
+        var user = JSON.parse(list);
+        document.getElementById("requested-user").innerHTML = "";                
+        for(var i = 0; i < user.length; i++){
+            $('#requested-user').append($('<li>').html("<a onclick='allowUser(this)'>"+user[i]+"</a>"));
+        }
+    });
+    socket.on('get whole user for whitelist',function(list){        
+        var user = JSON.parse(list);  
+        document.getElementById("whole-list-for-whitelist").innerHTML = "";             
+        for(var i = 0; i < user.length; i++){
+            $('#whole-list-for-whitelist').append($('<li>').html("<a onclick='whitelistUser(this)'>"+user[i]+"</a>"));
+        }
+    });
+    socket.on('active admin panel',function(list){        
+        document.getElementById("admin-panel").style.display = "table";
+    }); 
+    socket.on('password input',function(roomName){    
+        var input = prompt("Passwort eingeben");
+        alert(input);
+        if(input != null){    
+            socket.emit('password input',roomName,input); 
+        }else{
+            var confirmed = confirm("Möchtest du eine Anfrage stellen?");
+            if(confirmed){
+                socket.emit('request chatroom',roomName);
+            } 
+        }
+    }); 
+    socket.on('prompt',function(message){        
+        alert(message);
+    }); 
+    socket.on('error',function(message){        
+        alert(message);
+    });       
+    
+    function addNickname(){
+        generateKeys();
+        localStorage.setItem("nickname",document.getElementById("nickname").value);
+        document.getElementById("lightbox").style.display = "none";
+        socket.emit('login',localStorage.getItem("nickname"),localStorage.getItem("myPrivateKey"));
     }
-
-    /*
-    * shows the whisper command in the chat input with nameObject inner text.
-    * */
     function whisperTo(nameObject){
         $('#m').val('/w "' + nameObject.innerText + '" ');
     }
-
-    function getList(){
-        var message = {"message":"/list"};
-        socket.emit('chat message',JSON.stringify(message));
+    function getUserList(){        
+        socket.emit('get user list');
     }
+    function getChatroomList(){
+        socket.emit('get chatroom list');
+    }
+    function getKey(name){
+        var key = "";
+        var keyList = JSON.parse(localStorage.getItem("publicKeyList"));
+        for(var username in keyList){
+            if(name == username){
+                key = keyList[username];
+            }
+        }
+        return key;
+    }
+    function parseTextToCommand(msg){
+        var cmd = "";
+        if(msg.startsWith("/list")){
+            cmd = "list";
+        }else if(msg.startsWith("/w")){
+            cmd = "whisper";
+        }else if(msg == "/sec"){
+            cmd = "sec";
+        }else{
+            cmd = "message";
+        }
+        return cmd;
+    }
+    function parseName(message){
+        return message.substr(message.indexOf('"')+1,message.indexOf('"',message.indexOf('"')+1) - message.indexOf('"')-1);
+    }
+    function createNewChatroom(){        
+        socket.emit('create new chatroom',prompt("Benenne deinen Chatroom"));
+    }
+    function joinChatroom(room){        
+        socket.emit('join chatroom',room.innerHTML);
+    }
+    function closeLightbox(){
+        document.getElementById("lightbox").style.display = "none";
+    }
+    function setChatroomPassword(){
+        socket.emit('set chat password',prompt("Wähle dein Passwort"));
+    }
+    function openAdmin(){
+        socket.emit('get requested user');
+        socket.emit('get whole user for whitelist');
+        document.getElementById("lightbox").style.display = "block";
+        document.getElementById("chatroom-admin-wrapper").style.display = "table-cell";
+        document.getElementById("chatroom-list-wrapper").style.display = "none";
+        document.getElementById("nickname-wrapper").style.display = "none";        
+    }
+    function allowUser(user){
+        socket.emit('allow user',user.innerHTML);
+    }
+    function whitelistUser(user){
+        socket.emit('whitelist user',user.innerHTML);
+    }
+    function leaveChatroom(){
+        socket.emit('leave chatroom');
+    }
+            
 </script>
 </body>
 </html>
