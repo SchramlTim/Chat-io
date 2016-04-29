@@ -1,6 +1,10 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var express = require('express');
+var io = require('socket.io');
+
+var app = express.createServer();
+
+
+
 
 
 var wholeUserList = [];
@@ -486,10 +490,10 @@ function getChatroomByAdmin(chatroomAdmin){
 }
 
 app.get('/', function(req, res){
-
   res.sendFile(__dirname + '/chat.html');
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+app.listen(process.env.port, function () {
+  var addr = app.address();
+  console.log('   app listening on http://' + addr.address + ':' + addr.port);
 });
