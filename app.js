@@ -1,10 +1,25 @@
-var express = require('express');
-var io = require('socket.io');
+//var express = require('express');
+var sio = require('socket.io');
+//var app = express();
 
-var app = express.createServer();
+var app = require('http').createServer(serveStaticIndex);
+var io = sio.listen(app)
+var fs = require('fs');
 
+function serveStaticIndex(req, res) {
+  var fileStream = fs.createReadStream(__dirname + '/chat.html');
+  res.writeHead(200);
+  fileStream.pipe(res);
+}
 
+//app.get('/', function(req, res){
+  ///res.sendFile(__dirname + '/chat.html');
+//});
 
+app.listen(process.env.port, function () {
+  var addr = app.address();
+  console.log('   app listening on http://' + addr.address + ':' + addr.port);
+});
 
 
 var wholeUserList = [];
@@ -489,11 +504,3 @@ function getChatroomByAdmin(chatroomAdmin){
   return chatroom;
 }
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/chat.html');
-});
-
-app.listen(process.env.port, function () {
-  var addr = app.address();
-  console.log('   app listening on http://' + addr.address + ':' + addr.port);
-});
